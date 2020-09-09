@@ -119,6 +119,9 @@ class Terminal extends PureComponent {
     const isCKey = e.keyCode === 67
     const isDKey = e.keyCode === 68
     const isLKey = e.keyCode === 76
+    const isCtrlCKey = isCKey && e.ctrlKey && !e.shiftKey
+    const isCtrlDKey = isDKey && e.ctrlKey && !e.shiftKey
+    const isCtrlLKey = isLKey && e.ctrlKey && !e.shiftKey
 
     if (isDownKey) {
       this.historyCmdIndex = Math.min(this.historyCmdIndex + 1, this.historyCmdList.length - 1)
@@ -142,18 +145,19 @@ class Terminal extends PureComponent {
       e.preventDefault()
     }
 
-    if (e.ctrlKey && isCKey) {
+    if (isCtrlCKey) {
       this.print(`${prompt}${command}`)
       this.setState({ command: '' })
       e.preventDefault()
     }
 
-    if (e.ctrlKey && isDKey) {
+    if (isCtrlDKey) {
       this.print(tipCmdList.jump)
+      e.preventDefault()
       window.history.go(-1)
     }
 
-    if (e.ctrlKey && isLKey) {
+    if (isCtrlLKey) {
       this.setState({ cmdList: [] })
       e.preventDefault()
     }
