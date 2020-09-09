@@ -1,15 +1,31 @@
-import React, {Component} from 'react'
-import {render} from 'react-dom'
+import React from 'react'
+import ReactDOM from 'react-dom'
+import './index.css'
+import Terminal from '../../src'
 
-import Example from '../../src'
+import dynamicList from './commands/dynamic'
+import staticList from './commands/static'
 
-export default class Demo extends Component {
-  render() {
-    return <div>
-      <h1>react-terminal Demo</h1>
-      <Example/>
-    </div>
-  }
+const cmd = { dynamicList, staticList }
+const config = {
+  prompt: '➜  ~ ',
+  version: '1.0.0',
+  initialDirectory: '一个坏掉的番茄',
+  bootCmd: 'intro'
 }
 
-render(<Demo/>, document.querySelector('#demo'))
+ReactDOM.render(
+  <React.StrictMode>
+    <Terminal className={'fade'} cmd={cmd} config={config} />
+  </React.StrictMode>,
+  document.querySelector('#demo')
+)
+
+const fadeEl = document.querySelectorAll('.fade')
+window.addEventListener('load', function () {
+  fadeEl.forEach(e => e.classList.add('in'))
+})
+
+window.addEventListener('beforeunload', function () {
+  fadeEl.forEach(e => e.classList.remove('in'))
+})

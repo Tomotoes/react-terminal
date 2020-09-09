@@ -2,10 +2,10 @@
 	<img src="./docs/logo.png" alt="react-terminal">
 	<br>
 	<h1>React-terminal</h1>
-	<sub>Built with ❤︎ by <a href="https://tomotoes.com">Simon Ma</a> - <a href="https://github.com/Tomotoes/react-terminal/blob/master/README.zh_CN.md">中文文档</a></sub>
+	<sub>Built with ❤︎ by <a href="https://tomotoes.com">Simon Ma</a> - <a href="https://github.com/Tomotoes/react-terminal">English document</a></sub>
 </div>
 <hr/>
-<p align="center">🚀 <strong>A terminal emulator in React</strong></p>
+<p align="center">🚀 <strong>一个简洁&漂亮的终端模拟应用</strong></p>
 <p align="center">
   <a href="https://github.com/feross/standard">
     <img src="https://img.shields.io/badge/code%20style-standard-green.svg?style=flat-square">
@@ -16,51 +16,47 @@
   <a href="https://github.com/Tomotoes/react-terminal/issues"><img src="https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat-square"></a>
 </p>
 
+## 👀目录
+
+- [🎉简介](https://github.com/Tomotoes/react-terminal/blob/master/README.zh_CN.md#简介)
+- [💡安装](https://github.com/Tomotoes/react-terminal/blob/master/README.zh_CN.md#安装)
+- [✨使用](https://github.com/Tomotoes/react-terminal/blob/master/README.zh_CN.md#使用)
+- [🎨TODO](https://github.com/Tomotoes/react-terminal/blob/master/README.zh_CN.md#todo)
+- [🎯开发](https://github.com/Tomotoes/react-terminal/blob/master/README.zh_CN.md#开发)
+- [💚赞赏](https://github.com/Tomotoes/react-terminal/blob/master/README.zh_CN.md#赞赏)
+- [📃协议](https://github.com/Tomotoes/react-terminal/blob/master/README.zh_CN.md#协议)
 
 
-## 👀Table of contents
-
-- [🎉Introduction](https://github.com/Tomotoes/react-terminal#introduction)
-- [💡Install](https://github.com/Tomotoes/react-terminal#install)
-- [✨Usage](https://github.com/Tomotoes/react-terminal#usage)
-- [🎨TODO](https://github.com/Tomotoes/react-terminal#todo)
-- [🎯Dev](https://github.com/Tomotoes/react-terminal#dev)
-- [💚Reward](https://github.com/Tomotoes/react-terminal#reward)
-- [📃License](https://github.com/Tomotoes/react-terminal#license)
 
 
-
-## 🎉Introduction
+## 🎉简介
 
 ![terminal-intro](./docs/view.jpg)
 
-[Try the demo](https://tomotoes.com/about/)
+[在线体验](https://tomotoes.com/about/)
 
-[`React-terminal`](https://tomotoes.com/about/) is a terminal emulator inspired by [vue-terminal](https://github.com/dongsuo/vue-terminal).
+[`React-terminal`](https://tomotoes.com/about/) 是一款终端模拟应用，其诞生离不开 [vue-terminal](https://github.com/dongsuo/vue-terminal) 开源项目。
 
-If you are looking for an interactive application that displays information, then `React-terminal` would be a good choice for you.
+如果你正在找一款展示信息的交互式应用，那么 `React-terminal` 会是你很好的选择。
 
+`React-terminal` 所支持的特性如下：
 
-
-Some of cool features of this React component are:
-
-1. Built-in system commands：`ls` `cd` `pwd` `echo` etc
-2. You can use `tab` to automatically complete the command
-3. Command history using arrow up and down
-4. Customizable commands, prompt and label style
-5. Support callbacks(async/non-async) for commands
+1. 内置系统命令：`ls`,`cd`,`pwd`，`echo` 等
+2. 可使用`tab`自动补全命令
+3. 可使用方向键回到历史命令
+4. 可自定义所有命令样式
+5. 与JS结合，可任意模拟系统命令
 
 
 
-Some ideas for using React Terminal in your next project:
+在下一个项目中使用React Terminal的一些想法：
 
-- **Personal website**: Make your personal website or web resume a command-line interface.
+- **个人网站**：展示个人信息，或交互式简历。
+- **Demos**：在JavaScript中为CLI应用程序创建模拟命令，并让用户在浏览器中尝试模拟输出的命令。
 
-- **Demos**: Create mock commands in JavaScript for your CLI app, and let users try out commands in their browser with simulated output.
 
-  
 
-## 💡Install
+## 💡安装
 
 ```sh
 npm i react-terminal-app
@@ -72,18 +68,18 @@ OR
 yarn add react-terminal-app
 ```
 
-This package also depends on `react` so make sure you've already installed it.
+此应用依赖于`react`, 请确保你已经安装。
 
 
 
-## ✨Usage
+## ✨使用
 
 ```jsx
 import Terminal from 'react-terminal-app'
 
-// refer to: https://github.com/Tomotoes/react-terminal/blob/master/demo/src/commands
-import dynamicList from 'command/dynamic'
+// 可参考: https://github.com/Tomotoes/react-terminal/blob/master/demo/src/commands
 import staticList from 'command/static'
+import dynamicList from 'command/dynamic'
 
 const cmd = {
   dynamicList,
@@ -104,13 +100,13 @@ function App() {
 
 
 
-### DataStruct
+### 数据结构
 
 #### PropTypes
 
 ```js
 {
-	cmd: PropTypes.shape({
+    cmd: PropTypes.shape({
       dynamicList: PropTypes.object,
       staticList: PropTypes.object
     }).isRequired,
@@ -130,7 +126,7 @@ function App() {
 
 #### Command
 
->  Command is an object, used to define message showed in terminal:
+> Command是一个对象，用于定义终端中显示的消息格式：
 
 ```ts
 interface ICommand {
@@ -149,9 +145,7 @@ type command = ICommand | string
 
 #### className
 
-The class name of the root node, you can customize the style.
-
-Defaults to `react-terimnal-app`
+`React-terminal` 根节点的类名, 可用来自定义样式，默认值:`react-terimnal-app`
 
 
 
@@ -159,44 +153,36 @@ Defaults to `react-terimnal-app`
 
 1. prompt
 
-   The text to show before the prompt. 
-
-   Defaults to `➜  ~ `.
+   终端的命令提示符, 默认值:`➜  ~ `.
 
 2. initialDirectory
 
-   Directory opened by default in the terminal.
-
-   Defaults to `src`.
+   终端默认打开的目录，默认值:`src`
 
 3. version
 
-   The version number of the terminal, you can execute the `version` command to view.
-
-   Defaults to `1.0.0`.
+   终端的版本号, 可执行`version`命令查看, 默认值:`1.0.0`
 
 4. bootCmd
 
-   The name of the command to be executed when the terminal is initialized.
+   终端初始化时, 所要执行的命令，默认值：`intro`
 
-   Defaults to `intro`.
 
-   
 
 #### cmd
 
 1. dynamicList
 
-   > The list of interactive commands.
+   > 可进行交互的命令列表
 
    ```js
    {
-     commandName: {
-     	description: '...',
+     命令名称: {
+     	description: 命令描述,
        run(print, input) {
-         // print: a function that allow you to print command to the terminal
-         // input: Command parameters currently entered
-         // eg: echo HelloWorld, input The value passed in is 'HelloWorld'
+         // print: 打印函数
+         // input: 当前输入的命令参数
+         // eg: echo HelloWorld, input 传入的值便是HelloWorld
          return new Promise((resolve,reject) => {
            // do something
          })
@@ -205,7 +191,7 @@ Defaults to `react-terimnal-app`
    }
    ```
 
-   Example: Define an `open` command to open the entered URL.
+   eg: 定义一个`open`命令, 来打开输入的网址
 
    ```js
    export default {
@@ -230,18 +216,18 @@ Defaults to `react-terimnal-app`
 
 2. staticList
 
-   > The list of commands that only show data
+   > 只展示数据的命令列表
 
    ```js
    {
-     commandName: {
-     	description: '...',
+     命令名称: {
+     	description: 命令描述,
        list: [ <command> ]
      }
    }
    ```
 
-	Example: Define a `skills` command to display the skills you master.
+	eg: 定义一个`skills`命令, 用来显示个人所掌握的技能
 	
 	```js
 	  skill: {
@@ -256,9 +242,9 @@ Defaults to `react-terimnal-app`
 
 
 
-### Built-in command
+### 内置命令
 
-#### System commands
+#### System命令
 
   - `clear | cls` - clears the screen
    - `help | ls` - list all the commands
@@ -269,52 +255,50 @@ Defaults to `react-terimnal-app`
 
 
 
-#### Tip commands
+#### 提示命令
 
-- When jumping to the page - `Jumping page...`
+- 跳转页面时 - `Jumping page...`
 
-- When the command is not found
+- 命令未找到时 
 
   ````js
   command => `Command '${command}' not found`
   ````
 
-- The prompt of the help command - `Here is a list of supporting command.`
+- help 命令的提示语 - `Here is a list of supporting command.`
 
-- When the command is wrong - `'Something went wrong!'`
+- 出错时 - `'Something went wrong!'`
 
 
 
 ## 🎨TODO
 
-1. Add the button click function in the upper left corner of the terminal.
-2. Add more system commands.
-3. Make terminal themes customizable.
-4. Add multi-line input feature.
-5. Add plug-in system support.
+1. 增加终端左上角按钮点击功能
+2. 增加更多系统命令
+3. 使终端主题可定制
+4. 增加多行输入功能
+5. 增加插件系统支持
 
 
 
-## 🎯Dev
+## 🎯开发
 
-This project was generated with [nwb](https://github.com/insin/nwb).
+项目使用的脚手架是[nwb](https://github.com/insin/nwb)。
 
 ```sh
 git clone https://github.com/Tomotoes/react-terminal
 cd react-terminal
-yarn install
-yarn start
+npm install
+npm start
 ```
 
-Feel free to open issues or PRs for any problem you may encounter, typos that you see or aspects that are confusing. 
-
-Contributions are welcome, open an issue or email me if you have something you want to work on.
+如果你有任何问题，欢迎提交 `Issues` 或 `PR`！
 
 
 
-## 💚Reward
+## 💚赞赏
 
-If you like `React-terminal` and it really helps you, please give me a cup of coffee~
+如果你喜欢`React-terminal`，并且它对你确实有帮助，欢迎给我打赏一杯咖啡哈~
 
 paypal: [https://paypal.me/tomotoes](https://paypal.me/tomotoes)
 
@@ -322,6 +306,6 @@ paypal: [https://paypal.me/tomotoes](https://paypal.me/tomotoes)
 
 
 
-## 📃License
+## 📃协议
 
 MIT License © Simon Ma
