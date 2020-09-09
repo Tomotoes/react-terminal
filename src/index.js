@@ -202,7 +202,7 @@ class Terminal extends PureComponent {
         this.print(cmdList)
       } else {
         cmdList.push(supporting)
-        const supportedCmdList = this.cmd.supportedCmdList.map(commandKey => {
+        const supportedCmdList = this.supportedCmdList.map(commandKey => {
           const command = cmd.staticList[commandKey] || cmd.dynamicList[commandKey]
           return ({ type: 'success', label: commandKey, content: `() => ${command.description}` })
         })
