@@ -25,6 +25,8 @@ import {
 
 import { systemCmdList, tipCmdList } from './commands'
 
+import { setCaretPosition } from './utils'
+
 class Terminal extends PureComponent {
   static propTypes = {
     cmd: PropTypes.shape({
@@ -130,7 +132,12 @@ class Terminal extends PureComponent {
     }
     if (isUpKey || isDownKey) {
       const historyCmd = this.historyCmdList[this.historyCmdIndex]
-      historyCmd && this.setState({ command: historyCmd })
+      if (historyCmd) {
+        this.setState({ command: historyCmd })
+        setTimeout(() => {
+          setCaretPosition(this.$inputEl.current, historyCmd.length + 1)
+        }, 0)
+      }
     }
 
     const { command, isPrinting } = this.state
@@ -219,6 +226,7 @@ class Terminal extends PureComponent {
     } else if (pwd.aliasList.includes(action)) {
       this.print(this.state.directory)
     } else if (cd.aliasList.includes(action)) {
+      if (!commandKey) { return }
       const directory = commandKey.trim()
       if (directory && directory.length < 20) {
         this.setState({ directory })
