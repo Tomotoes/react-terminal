@@ -226,10 +226,11 @@ class Terminal extends PureComponent {
     } else if (pwd.aliasList.includes(action)) {
       this.print(this.state.directory)
     } else if (cd.aliasList.includes(action)) {
-      if (!commandKey) { return }
-      const directory = commandKey.trim()
-      if (directory && directory.length < 20) {
-        this.setState({ directory })
+      if (commandKey) {
+        const directory = commandKey.trim()
+        if (directory && directory.length < 20) {
+          this.setState({ directory })
+        }
       }
     } else if (version.aliasList.includes(action)) {
       this.print(versionNumber)
@@ -243,7 +244,7 @@ class Terminal extends PureComponent {
     }
 
     this.setState({ command: '' })
-    this.autoScroll()
+    setTimeout(this.autoScroll, 0)
     this.inputFocus()
   }
 
