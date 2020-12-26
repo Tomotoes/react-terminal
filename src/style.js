@@ -2,7 +2,8 @@ import styled, { keyframes } from 'styled-components'
 
 export const StyledTerminalWrapper = styled.div`
   position: relative;
-  margin: 30px auto 10px !important;
+  font-size: 16px;
+  margin: 5vh auto 10px !important;
   width: 60%;
   border-radius: 4px;
   color: white;
@@ -11,10 +12,7 @@ export const StyledTerminalWrapper = styled.div`
   
   @media screen and (max-width: 760px) {  
     width: 100%;
-  }
-
-  @media screen and (min-height: 1000px) {  
-    margin: 30% auto 10px !important;
+    margin-top: 2vh !important;
   }
 `
 
@@ -26,13 +24,15 @@ export const StyledTerminal = styled.div`
   overflow: auto;
   z-index: 1;
   margin-top: 10px;
-  height: 670px;
-  max-height: 670px;
+  height: 90vh;
+  max-height: 90vh;
   box-shadow: -2px 7px 20px 3px #222;
   background-color: rgb(49, 49, 49);
 
   @media screen and (max-width: 760px) {
     box-shadow: none;
+    height: 96vh;
+    max-height: 96vh;
   }
 `
 
@@ -44,7 +44,7 @@ export const StyledTerminalInner = styled.div`
   color: #fff;
   text-shadow: rgb(160, 156, 155) 0px 0px 1px, rgb(255, 255, 251) 0px 0px 1px;
   @media screen and (max-width: 760px) {
-    padding: 5px 5px 0px 5px;
+    padding: 20px 5px 0px 5px;
   }
 `
 
@@ -52,7 +52,6 @@ export const StyledInputWrapper = styled.p`
   word-spacing: 0;
   letter-spacing: 0;
   word-break: break-all;
-  font-size: 15px;
   font-weight: 400;
   font-family: Fira Code,Source Code Pro,Monaco,Menlo,Consolas,monospace;
   color: #fff;
@@ -76,7 +75,6 @@ export const StyledInput = styled.input`
 
 export const StyledPrompt = styled.span`
   word-break: break-all;
-  font-size: 15px;
   color: #9bf786;
 `
 
@@ -117,7 +115,6 @@ export const StyledBlinkCursor = styled.span`
 `
 
 export const StyledLine = styled.div`
-  font-size: 15px;
   word-break: break-all;
   border-radius: 1px;
   margin-block-start: 1em;
@@ -185,7 +182,6 @@ export const StyledHeader = styled.div`
 `
 
 export const StyledHeaderTitle = styled.h4`
-  font-size: 15px;
   margin: 5px;
   letter-spacing: 1px;
   font-weight: 300;
