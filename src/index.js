@@ -72,8 +72,12 @@ class Terminal extends PureComponent {
 
     this.supportedCmdList = [
       ...Object.keys(cmd.staticList),
-      ...Object.keys(cmd.dynamicList),
+      ...Object.keys(cmd.dynamicList)
+    ]
+    this.allCmdList = [
+      ...this.supportedCmdList,
       ...(Object.keys(systemCmdList).map(key => systemCmdList[key].aliasList).flat(1))
+
     ]
   }
 
@@ -148,7 +152,7 @@ class Terminal extends PureComponent {
       if (!command) {
         this.setState({ command: 'help' })
       }
-      const canExtendCmdList = this.supportedCmdList.filter(c => c.startsWith(command))
+      const canExtendCmdList = this.allCmdList.filter(c => c.startsWith(command))
       if (canExtendCmdList && canExtendCmdList.length) {
         this.setState({ command: canExtendCmdList[Math.floor(Math.random() * canExtendCmdList.length)] })
       }
