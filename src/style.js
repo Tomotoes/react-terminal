@@ -5,6 +5,7 @@ export const StyledTerminalWrapper = styled.div`
   font-size: 16px;
   margin: 5vh auto 10px !important;
   width: 60%;
+  max-width: 1200px;
   border-radius: 4px;
   color: white;
   -webkit-font-smoothing: antialiased;
